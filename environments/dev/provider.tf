@@ -7,13 +7,14 @@ terraform {
   }
 
   backend "s3" {
-    bucket         = "my-terraform-state-bucket"
-    key            = "terraform/state.tfstate"
-    region         = "us-east-1"
-    dynamodb_table = "terraform-locks"
-    encrypt        = true
+    bucket       = "my-terraform-state-bucket"   # nombre exacto de tu bucket
+    key          = "terraform/state.tfstate"     # ruta dentro del bucket
+    region       = "us-west-2"                   # región real del bucket
+    encrypt      = true
+    use_lockfile = true                           # reemplaza dynamodb_table
   }
 }
+
 provider "aws" {
   region = var.aws_region
 }
