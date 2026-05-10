@@ -1,0 +1,192 @@
+Acquiring state lock. This may take a few moments...
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  [32m+[0m create[0m
+
+Terraform will perform the following actions:
+
+[1m  # module.networking.aws_internet_gateway.main[0m will be created
+[0m  [32m+[0m[0m resource "aws_internet_gateway" "main" {
+      [32m+[0m[0m arn      = (known after apply)
+      [32m+[0m[0m id       = (known after apply)
+      [32m+[0m[0m owner_id = (known after apply)
+      [32m+[0m[0m tags     = {
+          [32m+[0m[0m "Environment" = "dev"
+          [32m+[0m[0m "Name"        = "terraform-aws-infrastructure-dev-igw"
+          [32m+[0m[0m "Project"     = "terraform-aws-infrastructure"
+        }
+      [32m+[0m[0m tags_all = {
+          [32m+[0m[0m "Environment" = "dev"
+          [32m+[0m[0m "Name"        = "terraform-aws-infrastructure-dev-igw"
+          [32m+[0m[0m "Project"     = "terraform-aws-infrastructure"
+        }
+      [32m+[0m[0m vpc_id   = (known after apply)
+    }
+
+[1m  # module.networking.aws_route.public_internet_access[0m will be created
+[0m  [32m+[0m[0m resource "aws_route" "public_internet_access" {
+      [32m+[0m[0m destination_cidr_block = "0.0.0.0/0"
+      [32m+[0m[0m gateway_id             = (known after apply)
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m instance_id            = (known after apply)
+      [32m+[0m[0m instance_owner_id      = (known after apply)
+      [32m+[0m[0m network_interface_id   = (known after apply)
+      [32m+[0m[0m origin                 = (known after apply)
+      [32m+[0m[0m route_table_id         = (known after apply)
+      [32m+[0m[0m state                  = (known after apply)
+    }
+
+[1m  # module.networking.aws_route_table.private[0m will be created
+[0m  [32m+[0m[0m resource "aws_route_table" "private" {
+      [32m+[0m[0m arn              = (known after apply)
+      [32m+[0m[0m id               = (known after apply)
+      [32m+[0m[0m owner_id         = (known after apply)
+      [32m+[0m[0m propagating_vgws = (known after apply)
+      [32m+[0m[0m route            = (known after apply)
+      [32m+[0m[0m tags             = {
+          [32m+[0m[0m "Environment" = "dev"
+          [32m+[0m[0m "Name"        = "terraform-aws-infrastructure-dev-private-rt"
+          [32m+[0m[0m "Project"     = "terraform-aws-infrastructure"
+        }
+      [32m+[0m[0m tags_all         = {
+          [32m+[0m[0m "Environment" = "dev"
+          [32m+[0m[0m "Name"        = "terraform-aws-infrastructure-dev-private-rt"
+          [32m+[0m[0m "Project"     = "terraform-aws-infrastructure"
+        }
+      [32m+[0m[0m vpc_id           = (known after apply)
+    }
+
+[1m  # module.networking.aws_route_table.public[0m will be created
+[0m  [32m+[0m[0m resource "aws_route_table" "public" {
+      [32m+[0m[0m arn              = (known after apply)
+      [32m+[0m[0m id               = (known after apply)
+      [32m+[0m[0m owner_id         = (known after apply)
+      [32m+[0m[0m propagating_vgws = (known after apply)
+      [32m+[0m[0m route            = (known after apply)
+      [32m+[0m[0m tags             = {
+          [32m+[0m[0m "Environment" = "dev"
+          [32m+[0m[0m "Name"        = "terraform-aws-infrastructure-dev-public-rt"
+          [32m+[0m[0m "Project"     = "terraform-aws-infrastructure"
+        }
+      [32m+[0m[0m tags_all         = {
+          [32m+[0m[0m "Environment" = "dev"
+          [32m+[0m[0m "Name"        = "terraform-aws-infrastructure-dev-public-rt"
+          [32m+[0m[0m "Project"     = "terraform-aws-infrastructure"
+        }
+      [32m+[0m[0m vpc_id           = (known after apply)
+    }
+
+[1m  # module.networking.aws_route_table_association.private[0m will be created
+[0m  [32m+[0m[0m resource "aws_route_table_association" "private" {
+      [32m+[0m[0m id             = (known after apply)
+      [32m+[0m[0m route_table_id = (known after apply)
+      [32m+[0m[0m subnet_id      = (known after apply)
+    }
+
+[1m  # module.networking.aws_route_table_association.public[0m will be created
+[0m  [32m+[0m[0m resource "aws_route_table_association" "public" {
+      [32m+[0m[0m id             = (known after apply)
+      [32m+[0m[0m route_table_id = (known after apply)
+      [32m+[0m[0m subnet_id      = (known after apply)
+    }
+
+[1m  # module.networking.aws_subnet.private[0m will be created
+[0m  [32m+[0m[0m resource "aws_subnet" "private" {
+      [32m+[0m[0m arn                                            = (known after apply)
+      [32m+[0m[0m assign_ipv6_address_on_creation                = false
+      [32m+[0m[0m availability_zone                              = "us-east-1a"
+      [32m+[0m[0m availability_zone_id                           = (known after apply)
+      [32m+[0m[0m cidr_block                                     = "10.0.2.0/24"
+      [32m+[0m[0m enable_dns64                                   = false
+      [32m+[0m[0m enable_resource_name_dns_a_record_on_launch    = false
+      [32m+[0m[0m enable_resource_name_dns_aaaa_record_on_launch = false
+      [32m+[0m[0m id                                             = (known after apply)
+      [32m+[0m[0m ipv6_cidr_block_association_id                 = (known after apply)
+      [32m+[0m[0m ipv6_native                                    = false
+      [32m+[0m[0m map_public_ip_on_launch                        = false
+      [32m+[0m[0m owner_id                                       = (known after apply)
+      [32m+[0m[0m private_dns_hostname_type_on_launch            = (known after apply)
+      [32m+[0m[0m tags                                           = {
+          [32m+[0m[0m "Environment" = "dev"
+          [32m+[0m[0m "Name"        = "terraform-aws-infrastructure-dev-private-subnet"
+          [32m+[0m[0m "Project"     = "terraform-aws-infrastructure"
+          [32m+[0m[0m "Tier"        = "private"
+        }
+      [32m+[0m[0m tags_all                                       = {
+          [32m+[0m[0m "Environment" = "dev"
+          [32m+[0m[0m "Name"        = "terraform-aws-infrastructure-dev-private-subnet"
+          [32m+[0m[0m "Project"     = "terraform-aws-infrastructure"
+          [32m+[0m[0m "Tier"        = "private"
+        }
+      [32m+[0m[0m vpc_id                                         = (known after apply)
+    }
+
+[1m  # module.networking.aws_subnet.public[0m will be created
+[0m  [32m+[0m[0m resource "aws_subnet" "public" {
+      [32m+[0m[0m arn                                            = (known after apply)
+      [32m+[0m[0m assign_ipv6_address_on_creation                = false
+      [32m+[0m[0m availability_zone                              = "us-east-1a"
+      [32m+[0m[0m availability_zone_id                           = (known after apply)
+      [32m+[0m[0m cidr_block                                     = "10.0.1.0/24"
+      [32m+[0m[0m enable_dns64                                   = false
+      [32m+[0m[0m enable_resource_name_dns_a_record_on_launch    = false
+      [32m+[0m[0m enable_resource_name_dns_aaaa_record_on_launch = false
+      [32m+[0m[0m id                                             = (known after apply)
+      [32m+[0m[0m ipv6_cidr_block_association_id                 = (known after apply)
+      [32m+[0m[0m ipv6_native                                    = false
+      [32m+[0m[0m map_public_ip_on_launch                        = true
+      [32m+[0m[0m owner_id                                       = (known after apply)
+      [32m+[0m[0m private_dns_hostname_type_on_launch            = (known after apply)
+      [32m+[0m[0m tags                                           = {
+          [32m+[0m[0m "Environment" = "dev"
+          [32m+[0m[0m "Name"        = "terraform-aws-infrastructure-dev-public-subnet"
+          [32m+[0m[0m "Project"     = "terraform-aws-infrastructure"
+          [32m+[0m[0m "Tier"        = "public"
+        }
+      [32m+[0m[0m tags_all                                       = {
+          [32m+[0m[0m "Environment" = "dev"
+          [32m+[0m[0m "Name"        = "terraform-aws-infrastructure-dev-public-subnet"
+          [32m+[0m[0m "Project"     = "terraform-aws-infrastructure"
+          [32m+[0m[0m "Tier"        = "public"
+        }
+      [32m+[0m[0m vpc_id                                         = (known after apply)
+    }
+
+[1m  # module.networking.aws_vpc.main[0m will be created
+[0m  [32m+[0m[0m resource "aws_vpc" "main" {
+      [32m+[0m[0m arn                                  = (known after apply)
+      [32m+[0m[0m cidr_block                           = "10.0.0.0/16"
+      [32m+[0m[0m default_network_acl_id               = (known after apply)
+      [32m+[0m[0m default_route_table_id               = (known after apply)
+      [32m+[0m[0m default_security_group_id            = (known after apply)
+      [32m+[0m[0m dhcp_options_id                      = (known after apply)
+      [32m+[0m[0m enable_dns_hostnames                 = true
+      [32m+[0m[0m enable_dns_support                   = true
+      [32m+[0m[0m enable_network_address_usage_metrics = (known after apply)
+      [32m+[0m[0m id                                   = (known after apply)
+      [32m+[0m[0m instance_tenancy                     = "default"
+      [32m+[0m[0m ipv6_association_id                  = (known after apply)
+      [32m+[0m[0m ipv6_cidr_block                      = (known after apply)
+      [32m+[0m[0m ipv6_cidr_block_network_border_group = (known after apply)
+      [32m+[0m[0m main_route_table_id                  = (known after apply)
+      [32m+[0m[0m owner_id                             = (known after apply)
+      [32m+[0m[0m tags                                 = {
+          [32m+[0m[0m "Environment" = "dev"
+          [32m+[0m[0m "Name"        = "terraform-aws-infrastructure-dev-vpc"
+          [32m+[0m[0m "Project"     = "terraform-aws-infrastructure"
+        }
+      [32m+[0m[0m tags_all                             = {
+          [32m+[0m[0m "Environment" = "dev"
+          [32m+[0m[0m "Name"        = "terraform-aws-infrastructure-dev-vpc"
+          [32m+[0m[0m "Project"     = "terraform-aws-infrastructure"
+        }
+    }
+
+[1mPlan:[0m [0m9 to add, 0 to change, 0 to destroy.
+[90m
+─────────────────────────────────────────────────────────────────────────────[0m
+
+Note: You didn't use the -out option to save this plan, so Terraform can't
+guarantee to take exactly these actions if you run "terraform apply" now.
+Releasing state lock. This may take a few moments...
