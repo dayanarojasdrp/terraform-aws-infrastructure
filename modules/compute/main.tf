@@ -5,6 +5,7 @@ resource "aws_instance" "bastion" {
   vpc_security_group_ids      = [var.bastion_security_group_id]
   associate_public_ip_address = true
   key_name                    = var.key_name
+  iam_instance_profile        = var.iam_instance_profile_name
 
   tags = {
     Name        = "${var.project_name}-${var.environment}-bastion"
@@ -20,6 +21,7 @@ resource "aws_instance" "private_app" {
   subnet_id              = var.private_subnet_id
   vpc_security_group_ids = [var.private_app_security_group_id]
   key_name               = var.key_name
+  iam_instance_profile        = var.iam_instance_profile_name
 
   tags = {
     Name        = "${var.project_name}-${var.environment}-private-app"
