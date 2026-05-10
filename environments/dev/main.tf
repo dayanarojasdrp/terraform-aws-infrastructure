@@ -30,3 +30,9 @@ module "compute" {
   bastion_security_group_id     = module.security.bastion_security_group_id
   private_app_security_group_id = module.security.private_app_security_group_id
 }
+module "iam" {
+  source = "../../modules/iam"
+
+  project_name = var.project_name
+  environment  = var.environment
+}
