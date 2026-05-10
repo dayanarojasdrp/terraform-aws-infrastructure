@@ -45,3 +45,27 @@ variable "instance_type" {
   type        = string
   default     = "t2.micro"
 }
+
+variable "allowed_ssh_cidr" {
+  description = "CIDR block allowed to SSH into the bastion host."
+  type        = string
+  default     = "0.0.0.0/0"
+}
+
+variable "ami_id" {
+  description = "AMI ID used for EC2 instances."
+  type        = string
+  default     = ""
+}
+
+variable "key_name" {
+  description = "Existing AWS key pair name used to SSH into EC2 instances."
+  type        = string
+  default     = ""
+}
+
+variable "enable_nat_gateway" {
+  description = "Whether to create a NAT Gateway for private subnet outbound internet access."
+  type        = bool
+  default     = false
+}
