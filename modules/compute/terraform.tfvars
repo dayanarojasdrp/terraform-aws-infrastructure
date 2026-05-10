@@ -12,7 +12,7 @@ instance_type = "t2.micro"
 
 allowed_ssh_cidr = "0.0.0.0/0"
 
-ami_id = "AMI_REAL_AQUI"
+ami_id = "ami-0a59ec92177ec3fad"
 key_name = "KEY_PAIR_REAL_AQUI"
 
 enable_nat_gateway = false
