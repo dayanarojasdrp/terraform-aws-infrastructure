@@ -29,7 +29,7 @@ module "compute" {
   private_subnet_id             = module.networking.private_subnet_id
   bastion_security_group_id     = module.security.bastion_security_group_id
   private_app_security_group_id = module.security.private_app_security_group_id
-  iam_instance_profile_name = module.iam.ec2_instance_profile_name
+  iam_instance_profile_name     = module.iam.ec2_instance_profile_name
 }
 module "iam" {
   source = "../../modules/iam"
