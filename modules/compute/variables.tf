@@ -42,3 +42,7 @@ variable "private_app_security_group_id" {
   description = "Security Group ID attached to the private app server."
   type        = string
 }
+variable "iam_instance_profile_name" {
+  description = "IAM instance profile name attached to EC2 instances."
+  type        = string
+}
