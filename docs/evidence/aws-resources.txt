@@ -1,0 +1,15 @@
+module.compute.aws_instance.bastion
+module.compute.aws_instance.private_app
+module.iam.aws_iam_instance_profile.ec2_profile
+module.iam.aws_iam_role.ec2_role
+module.networking.aws_internet_gateway.main
+module.networking.aws_route.public_internet_access
+module.networking.aws_route_table.private
+module.networking.aws_route_table.public
+module.networking.aws_route_table_association.private
+module.networking.aws_route_table_association.public
+module.networking.aws_subnet.private
+module.networking.aws_subnet.public
+module.networking.aws_vpc.main
+module.security.aws_security_group.bastion
+module.security.aws_security_group.private_app

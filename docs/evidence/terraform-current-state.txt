@@ -1,0 +1,600 @@
+# module.compute.aws_instance.bastion:
+resource "aws_instance" "bastion" {
+    ami                                  = "ami-0a59ec92177ec3fad"
+    arn                                  = "arn:aws:ec2:us-east-1:017562255060:instance/i-0f7e2d1962a43cc60"
+    associate_public_ip_address          = true
+    availability_zone                    = "us-east-1a"
+    cpu_core_count                       = 1
+    cpu_threads_per_core                 = 2
+    disable_api_stop                     = false
+    disable_api_termination              = false
+    ebs_optimized                        = false
+    get_password_data                    = false
+    hibernation                          = false
+    host_id                              = null
+    iam_instance_profile                 = "terraform-aws-infrastructure-dev-ec2-profile"
+    id                                   = "i-0f7e2d1962a43cc60"
+    instance_initiated_shutdown_behavior = "stop"
+    instance_lifecycle                   = null
+    instance_state                       = "running"
+    instance_type                        = "t3.micro"
+    ipv6_address_count                   = 0
+    ipv6_addresses                       = []
+    key_name                             = "terraform-devops-key-v2"
+    monitoring                           = false
+    outpost_arn                          = null
+    password_data                        = null
+    placement_group                      = null
+    placement_partition_number           = 0
+    primary_network_interface_id         = "eni-0d0589b0e4e4970d6"
+    private_dns                          = "ip-10-0-1-198.ec2.internal"
+    private_ip                           = "10.0.1.198"
+    public_dns                           = "ec2-32-192-2-38.compute-1.amazonaws.com"
+    public_ip                            = "32.192.2.38"
+    secondary_private_ips                = []
+    security_groups                      = []
+    source_dest_check                    = true
+    spot_instance_request_id             = null
+    subnet_id                            = "subnet-05ffa39971e75cc9d"
+    tags                                 = {
+        "Environment" = "dev"
+        "Name"        = "terraform-aws-infrastructure-dev-bastion"
+        "Project"     = "terraform-aws-infrastructure"
+        "Role"        = "bastion"
+    }
+    tags_all                             = {
+        "Environment" = "dev"
+        "Name"        = "terraform-aws-infrastructure-dev-bastion"
+        "Project"     = "terraform-aws-infrastructure"
+        "Role"        = "bastion"
+    }
+    tenancy                              = "default"
+    user_data_replace_on_change          = false
+    vpc_security_group_ids               = [
+        "sg-0df03192ecca4c91d",
+    ]
+
+    capacity_reservation_specification {
+        capacity_reservation_preference = "open"
+    }
+
+    cpu_options {
+        amd_sev_snp      = null
+        core_count       = 1
+        threads_per_core = 2
+    }
+
+    credit_specification {
+        cpu_credits = "unlimited"
+    }
+
+    enclave_options {
+        enabled = false
+    }
+
+    maintenance_options {
+        auto_recovery = "default"
+    }
+
+    metadata_options {
+        http_endpoint               = "enabled"
+        http_protocol_ipv6          = "disabled"
+        http_put_response_hop_limit = 2
+        http_tokens                 = "required"
+        instance_metadata_tags      = "disabled"
+    }
+
+    private_dns_name_options {
+        enable_resource_name_dns_a_record    = false
+        enable_resource_name_dns_aaaa_record = false
+        hostname_type                        = "ip-name"
+    }
+
+    root_block_device {
+        delete_on_termination = true
+        device_name           = "/dev/xvda"
+        encrypted             = false
+        iops                  = 3000
+        kms_key_id            = null
+        tags                  = {}
+        tags_all              = {}
+        throughput            = 125
+        volume_id             = "vol-0faa6158bfdad7bea"
+        volume_size           = 8
+        volume_type           = "gp3"
+    }
+}
+
+# module.compute.aws_instance.private_app:
+resource "aws_instance" "private_app" {
+    ami                                  = "ami-0a59ec92177ec3fad"
+    arn                                  = "arn:aws:ec2:us-east-1:017562255060:instance/i-0718b548514fee618"
+    associate_public_ip_address          = false
+    availability_zone                    = "us-east-1a"
+    cpu_core_count                       = 1
+    cpu_threads_per_core                 = 2
+    disable_api_stop                     = false
+    disable_api_termination              = false
+    ebs_optimized                        = false
+    get_password_data                    = false
+    hibernation                          = false
+    host_id                              = null
+    iam_instance_profile                 = "terraform-aws-infrastructure-dev-ec2-profile"
+    id                                   = "i-0718b548514fee618"
+    instance_initiated_shutdown_behavior = "stop"
+    instance_lifecycle                   = null
+    instance_state                       = "running"
+    instance_type                        = "t3.micro"
+    ipv6_address_count                   = 0
+    ipv6_addresses                       = []
+    key_name                             = "terraform-devops-key-v2"
+    monitoring                           = false
+    outpost_arn                          = null
+    password_data                        = null
+    placement_group                      = null
+    placement_partition_number           = 0
+    primary_network_interface_id         = "eni-0041cdc248225d6fd"
+    private_dns                          = "ip-10-0-2-65.ec2.internal"
+    private_ip                           = "10.0.2.65"
+    public_dns                           = null
+    public_ip                            = null
+    secondary_private_ips                = []
+    security_groups                      = []
+    source_dest_check                    = true
+    spot_instance_request_id             = null
+    subnet_id                            = "subnet-0bd5910e655554044"
+    tags                                 = {
+        "Environment" = "dev"
+        "Name"        = "terraform-aws-infrastructure-dev-private-app"
+        "Project"     = "terraform-aws-infrastructure"
+        "Role"        = "private-app"
+    }
+    tags_all                             = {
+        "Environment" = "dev"
+        "Name"        = "terraform-aws-infrastructure-dev-private-app"
+        "Project"     = "terraform-aws-infrastructure"
+        "Role"        = "private-app"
+    }
+    tenancy                              = "default"
+    user_data_replace_on_change          = false
+    vpc_security_group_ids               = [
+        "sg-0644a6e2ff0962fd3",
+    ]
+
+    capacity_reservation_specification {
+        capacity_reservation_preference = "open"
+    }
+
+    cpu_options {
+        amd_sev_snp      = null
+        core_count       = 1
+        threads_per_core = 2
+    }
+
+    credit_specification {
+        cpu_credits = "unlimited"
+    }
+
+    enclave_options {
+        enabled = false
+    }
+
+    maintenance_options {
+        auto_recovery = "default"
+    }
+
+    metadata_options {
+        http_endpoint               = "enabled"
+        http_protocol_ipv6          = "disabled"
+        http_put_response_hop_limit = 2
+        http_tokens                 = "required"
+        instance_metadata_tags      = "disabled"
+    }
+
+    private_dns_name_options {
+        enable_resource_name_dns_a_record    = false
+        enable_resource_name_dns_aaaa_record = false
+        hostname_type                        = "ip-name"
+    }
+
+    root_block_device {
+        delete_on_termination = true
+        device_name           = "/dev/xvda"
+        encrypted             = false
+        iops                  = 3000
+        kms_key_id            = null
+        tags                  = {}
+        tags_all              = {}
+        throughput            = 125
+        volume_id             = "vol-0ffa7746219420d26"
+        volume_size           = 8
+        volume_type           = "gp3"
+    }
+}
+# module.iam.aws_iam_instance_profile.ec2_profile:
+resource "aws_iam_instance_profile" "ec2_profile" {
+    arn         = "arn:aws:iam::017562255060:instance-profile/terraform-aws-infrastructure-dev-ec2-profile"
+    create_date = "2026-05-11T01:02:32Z"
+    id          = "terraform-aws-infrastructure-dev-ec2-profile"
+    name        = "terraform-aws-infrastructure-dev-ec2-profile"
+    name_prefix = null
+    path        = "/"
+    role        = "terraform-aws-infrastructure-dev-ec2-role"
+    tags        = {}
+    tags_all    = {}
+    unique_id   = "AIPAQIFWKX3KPWFAWWFIC"
+}
+
+# module.iam.aws_iam_role.ec2_role:
+resource "aws_iam_role" "ec2_role" {
+    arn                   = "arn:aws:iam::017562255060:role/terraform-aws-infrastructure-dev-ec2-role"
+    assume_role_policy    = jsonencode(
+        {
+            Statement = [
+                {
+                    Action    = "sts:AssumeRole"
+                    Effect    = "Allow"
+                    Principal = {
+                        Service = "ec2.amazonaws.com"
+                    }
+                },
+            ]
+            Version   = "2012-10-17"
+        }
+    )
+    create_date           = "2026-05-11T01:02:31Z"
+    description           = null
+    force_detach_policies = false
+    id                    = "terraform-aws-infrastructure-dev-ec2-role"
+    managed_policy_arns   = []
+    max_session_duration  = 3600
+    name                  = "terraform-aws-infrastructure-dev-ec2-role"
+    name_prefix           = null
+    path                  = "/"
+    permissions_boundary  = null
+    tags                  = {
+        "Environment" = "dev"
+        "Name"        = "terraform-aws-infrastructure-dev-ec2-role"
+        "Project"     = "terraform-aws-infrastructure"
+    }
+    tags_all              = {
+        "Environment" = "dev"
+        "Name"        = "terraform-aws-infrastructure-dev-ec2-role"
+        "Project"     = "terraform-aws-infrastructure"
+    }
+    unique_id             = "AROAQIFWKX3KO7VB2CDPG"
+}
+# module.networking.aws_internet_gateway.main:
+resource "aws_internet_gateway" "main" {
+    arn      = "arn:aws:ec2:us-east-1:017562255060:internet-gateway/igw-031a9969c930c25be"
+    id       = "igw-031a9969c930c25be"
+    owner_id = "017562255060"
+    tags     = {
+        "Environment" = "dev"
+        "Name"        = "terraform-aws-infrastructure-dev-igw"
+        "Project"     = "terraform-aws-infrastructure"
+    }
+    tags_all = {
+        "Environment" = "dev"
+        "Name"        = "terraform-aws-infrastructure-dev-igw"
+        "Project"     = "terraform-aws-infrastructure"
+    }
+    vpc_id   = "vpc-0cbdda6ccc7c34cb0"
+}
+
+# module.networking.aws_route.public_internet_access:
+resource "aws_route" "public_internet_access" {
+    carrier_gateway_id          = null
+    core_network_arn            = null
+    destination_cidr_block      = "0.0.0.0/0"
+    destination_ipv6_cidr_block = null
+    destination_prefix_list_id  = null
+    egress_only_gateway_id      = null
+    gateway_id                  = "igw-031a9969c930c25be"
+    id                          = "r-rtb-0e8b9db47fb48b4d81080289494"
+    instance_id                 = null
+    instance_owner_id           = null
+    local_gateway_id            = null
+    nat_gateway_id              = null
+    network_interface_id        = null
+    origin                      = "CreateRoute"
+    route_table_id              = "rtb-0e8b9db47fb48b4d8"
+    state                       = "active"
+    transit_gateway_id          = null
+    vpc_endpoint_id             = null
+    vpc_peering_connection_id   = null
+}
+
+# module.networking.aws_route_table.private:
+resource "aws_route_table" "private" {
+    arn              = "arn:aws:ec2:us-east-1:017562255060:route-table/rtb-04cf8f9853ef7ae8c"
+    id               = "rtb-04cf8f9853ef7ae8c"
+    owner_id         = "017562255060"
+    propagating_vgws = []
+    route            = []
+    tags             = {
+        "Environment" = "dev"
+        "Name"        = "terraform-aws-infrastructure-dev-private-rt"
+        "Project"     = "terraform-aws-infrastructure"
+    }
+    tags_all         = {
+        "Environment" = "dev"
+        "Name"        = "terraform-aws-infrastructure-dev-private-rt"
+        "Project"     = "terraform-aws-infrastructure"
+    }
+    vpc_id           = "vpc-0cbdda6ccc7c34cb0"
+}
+
+# module.networking.aws_route_table.public:
+resource "aws_route_table" "public" {
+    arn              = "arn:aws:ec2:us-east-1:017562255060:route-table/rtb-0e8b9db47fb48b4d8"
+    id               = "rtb-0e8b9db47fb48b4d8"
+    owner_id         = "017562255060"
+    propagating_vgws = []
+    route            = [
+        {
+            carrier_gateway_id         = null
+            cidr_block                 = "0.0.0.0/0"
+            core_network_arn           = null
+            destination_prefix_list_id = null
+            egress_only_gateway_id     = null
+            gateway_id                 = "igw-031a9969c930c25be"
+            ipv6_cidr_block            = null
+            local_gateway_id           = null
+            nat_gateway_id             = null
+            network_interface_id       = null
+            transit_gateway_id         = null
+            vpc_endpoint_id            = null
+            vpc_peering_connection_id  = null
+        },
+    ]
+    tags             = {
+        "Environment" = "dev"
+        "Name"        = "terraform-aws-infrastructure-dev-public-rt"
+        "Project"     = "terraform-aws-infrastructure"
+    }
+    tags_all         = {
+        "Environment" = "dev"
+        "Name"        = "terraform-aws-infrastructure-dev-public-rt"
+        "Project"     = "terraform-aws-infrastructure"
+    }
+    vpc_id           = "vpc-0cbdda6ccc7c34cb0"
+}
+
+# module.networking.aws_route_table_association.private:
+resource "aws_route_table_association" "private" {
+    gateway_id     = null
+    id             = "rtbassoc-09ed7639672b0e0ce"
+    route_table_id = "rtb-04cf8f9853ef7ae8c"
+    subnet_id      = "subnet-0bd5910e655554044"
+}
+
+# module.networking.aws_route_table_association.public:
+resource "aws_route_table_association" "public" {
+    gateway_id     = null
+    id             = "rtbassoc-0cd8f6f0611e6ec35"
+    route_table_id = "rtb-0e8b9db47fb48b4d8"
+    subnet_id      = "subnet-05ffa39971e75cc9d"
+}
+
+# module.networking.aws_subnet.private:
+resource "aws_subnet" "private" {
+    arn                                            = "arn:aws:ec2:us-east-1:017562255060:subnet/subnet-0bd5910e655554044"
+    assign_ipv6_address_on_creation                = false
+    availability_zone                              = "us-east-1a"
+    availability_zone_id                           = "use1-az1"
+    cidr_block                                     = "10.0.2.0/24"
+    customer_owned_ipv4_pool                       = null
+    enable_dns64                                   = false
+    enable_lni_at_device_index                     = 0
+    enable_resource_name_dns_a_record_on_launch    = false
+    enable_resource_name_dns_aaaa_record_on_launch = false
+    id                                             = "subnet-0bd5910e655554044"
+    ipv6_cidr_block                                = null
+    ipv6_cidr_block_association_id                 = null
+    ipv6_native                                    = false
+    map_customer_owned_ip_on_launch                = false
+    map_public_ip_on_launch                        = false
+    outpost_arn                                    = null
+    owner_id                                       = "017562255060"
+    private_dns_hostname_type_on_launch            = "ip-name"
+    tags                                           = {
+        "Environment" = "dev"
+        "Name"        = "terraform-aws-infrastructure-dev-private-subnet"
+        "Project"     = "terraform-aws-infrastructure"
+        "Tier"        = "private"
+    }
+    tags_all                                       = {
+        "Environment" = "dev"
+        "Name"        = "terraform-aws-infrastructure-dev-private-subnet"
+        "Project"     = "terraform-aws-infrastructure"
+        "Tier"        = "private"
+    }
+    vpc_id                                         = "vpc-0cbdda6ccc7c34cb0"
+}
+
+# module.networking.aws_subnet.public:
+resource "aws_subnet" "public" {
+    arn                                            = "arn:aws:ec2:us-east-1:017562255060:subnet/subnet-05ffa39971e75cc9d"
+    assign_ipv6_address_on_creation                = false
+    availability_zone                              = "us-east-1a"
+    availability_zone_id                           = "use1-az1"
+    cidr_block                                     = "10.0.1.0/24"
+    customer_owned_ipv4_pool                       = null
+    enable_dns64                                   = false
+    enable_lni_at_device_index                     = 0
+    enable_resource_name_dns_a_record_on_launch    = false
+    enable_resource_name_dns_aaaa_record_on_launch = false
+    id                                             = "subnet-05ffa39971e75cc9d"
+    ipv6_cidr_block                                = null
+    ipv6_cidr_block_association_id                 = null
+    ipv6_native                                    = false
+    map_customer_owned_ip_on_launch                = false
+    map_public_ip_on_launch                        = true
+    outpost_arn                                    = null
+    owner_id                                       = "017562255060"
+    private_dns_hostname_type_on_launch            = "ip-name"
+    tags                                           = {
+        "Environment" = "dev"
+        "Name"        = "terraform-aws-infrastructure-dev-public-subnet"
+        "Project"     = "terraform-aws-infrastructure"
+        "Tier"        = "public"
+    }
+    tags_all                                       = {
+        "Environment" = "dev"
+        "Name"        = "terraform-aws-infrastructure-dev-public-subnet"
+        "Project"     = "terraform-aws-infrastructure"
+        "Tier"        = "public"
+    }
+    vpc_id                                         = "vpc-0cbdda6ccc7c34cb0"
+}
+
+# module.networking.aws_vpc.main:
+resource "aws_vpc" "main" {
+    arn                                  = "arn:aws:ec2:us-east-1:017562255060:vpc/vpc-0cbdda6ccc7c34cb0"
+    assign_generated_ipv6_cidr_block     = false
+    cidr_block                           = "10.0.0.0/16"
+    default_network_acl_id               = "acl-0da87893f312d85d4"
+    default_route_table_id               = "rtb-0428a8e3b9e3ad5e7"
+    default_security_group_id            = "sg-0f0ebed849e0daced"
+    dhcp_options_id                      = "dopt-07042f273f6837c73"
+    enable_dns_hostnames                 = true
+    enable_dns_support                   = true
+    enable_network_address_usage_metrics = false
+    id                                   = "vpc-0cbdda6ccc7c34cb0"
+    instance_tenancy                     = "default"
+    ipv6_association_id                  = null
+    ipv6_cidr_block                      = null
+    ipv6_cidr_block_network_border_group = null
+    ipv6_ipam_pool_id                    = null
+    ipv6_netmask_length                  = 0
+    main_route_table_id                  = "rtb-0428a8e3b9e3ad5e7"
+    owner_id                             = "017562255060"
+    tags                                 = {
+        "Environment" = "dev"
+        "Name"        = "terraform-aws-infrastructure-dev-vpc"
+        "Project"     = "terraform-aws-infrastructure"
+    }
+    tags_all                             = {
+        "Environment" = "dev"
+        "Name"        = "terraform-aws-infrastructure-dev-vpc"
+        "Project"     = "terraform-aws-infrastructure"
+    }
+}
+# module.security.aws_security_group.bastion:
+resource "aws_security_group" "bastion" {
+    arn                    = "arn:aws:ec2:us-east-1:017562255060:security-group/sg-0df03192ecca4c91d"
+    description            = "Security group for bastion host."
+    egress                 = [
+        {
+            cidr_blocks      = [
+                "0.0.0.0/0",
+            ]
+            description      = "Allow all outbound traffic"
+            from_port        = 0
+            ipv6_cidr_blocks = []
+            prefix_list_ids  = []
+            protocol         = "-1"
+            security_groups  = []
+            self             = false
+            to_port          = 0
+        },
+    ]
+    id                     = "sg-0df03192ecca4c91d"
+    ingress                = [
+        {
+            cidr_blocks      = [
+                "0.0.0.0/0",
+            ]
+            description      = "Allow SSH access"
+            from_port        = 22
+            ipv6_cidr_blocks = []
+            prefix_list_ids  = []
+            protocol         = "tcp"
+            security_groups  = []
+            self             = false
+            to_port          = 22
+        },
+    ]
+    name                   = "terraform-aws-infrastructure-dev-bastion-sg"
+    name_prefix            = null
+    owner_id               = "017562255060"
+    revoke_rules_on_delete = false
+    tags                   = {
+        "Environment" = "dev"
+        "Name"        = "terraform-aws-infrastructure-dev-bastion-sg"
+        "Project"     = "terraform-aws-infrastructure"
+    }
+    tags_all               = {
+        "Environment" = "dev"
+        "Name"        = "terraform-aws-infrastructure-dev-bastion-sg"
+        "Project"     = "terraform-aws-infrastructure"
+    }
+    vpc_id                 = "vpc-0cbdda6ccc7c34cb0"
+}
+
+# module.security.aws_security_group.private_app:
+resource "aws_security_group" "private_app" {
+    arn                    = "arn:aws:ec2:us-east-1:017562255060:security-group/sg-0644a6e2ff0962fd3"
+    description            = "Security group for private application servers."
+    egress                 = [
+        {
+            cidr_blocks      = [
+                "0.0.0.0/0",
+            ]
+            description      = "Allow all outbound traffic"
+            from_port        = 0
+            ipv6_cidr_blocks = []
+            prefix_list_ids  = []
+            protocol         = "-1"
+            security_groups  = []
+            self             = false
+            to_port          = 0
+        },
+    ]
+    id                     = "sg-0644a6e2ff0962fd3"
+    ingress                = [
+        {
+            cidr_blocks      = []
+            description      = "Allow SSH only from bastion host"
+            from_port        = 22
+            ipv6_cidr_blocks = []
+            prefix_list_ids  = []
+            protocol         = "tcp"
+            security_groups  = [
+                "sg-0df03192ecca4c91d",
+            ]
+            self             = false
+            to_port          = 22
+        },
+    ]
+    name                   = "terraform-aws-infrastructure-dev-private-app-sg"
+    name_prefix            = null
+    owner_id               = "017562255060"
+    revoke_rules_on_delete = false
+    tags                   = {
+        "Environment" = "dev"
+        "Name"        = "terraform-aws-infrastructure-dev-private-app-sg"
+        "Project"     = "terraform-aws-infrastructure"
+    }
+    tags_all               = {
+        "Environment" = "dev"
+        "Name"        = "terraform-aws-infrastructure-dev-private-app-sg"
+        "Project"     = "terraform-aws-infrastructure"
+    }
+    vpc_id                 = "vpc-0cbdda6ccc7c34cb0"
+}
+
+
+Outputs:
+
+bastion_instance_id = "i-0f7e2d1962a43cc60"
+bastion_public_ip = "32.192.2.38"
+bastion_security_group_id = "sg-0df03192ecca4c91d"
+internet_gateway_id = "igw-031a9969c930c25be"
+private_app_instance_id = "i-0718b548514fee618"
+private_app_private_ip = "10.0.2.65"
+private_app_security_group_id = "sg-0644a6e2ff0962fd3"
+private_subnet_id = "subnet-0bd5910e655554044"
+public_subnet_id = "subnet-05ffa39971e75cc9d"
+vpc_id = "vpc-0cbdda6ccc7c34cb0"
